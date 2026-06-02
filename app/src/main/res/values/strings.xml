@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TentoApp</string>
+    <string name="partida">Partida: %s</string>
+    <string name="jogador_1">Equipe 1: nós</string>
+    <string name="jogador_2">Equipe 2: eles</string>
+    <string name="mais_1">+1</string>
+    <string name="mais_3">+ 3</string>
+    <string name="mais_6">+ 6</string>
+    <string name="mais_9">+ 9</string>
+    <string name="mais_12">+12</string>
+    <string name="zerar">Zerar</string>
+    <string name="info_nomes">Info. nomes</string>
+    <string name="zerar_hist">Zerar histórico</string>
+    <string name="hist_de_jogadas">Hist. de jogadas</string>
+    <string name="pontos_eqp1">Pontos: %x</string>
+    <string name="pontos_eqp2">Pontos: %y</string>
+</resources>
