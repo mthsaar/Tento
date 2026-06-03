@@ -10,22 +10,21 @@
     <TextView
         android:id="@+id/tv_partida"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/partida"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bandeira"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvJogador_1"
         android:layout_width="152dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
         android:text="@string/jogador_1"
-        app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_1_1"
-        app:layout_constraintStart_toStartOf="@+id/tv_partida"
-        app:layout_constraintTop_toBottomOf="@id/tv_partida" />
+        app:layout_constraintStart_toStartOf="@+id/ivEqp1"
+        app:layout_constraintTop_toTopOf="@+id/ivEqp1" />
 
     <Button
         android:id="@+id/btn_adicionar_1_1"
@@ -37,7 +36,7 @@
         android:text="@string/mais_1"
         app:layout_constraintBottom_toTopOf="@+id/tvJogador_2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvJogador_1" />
+        app:layout_constraintTop_toBottomOf="@+id/ivEqp1" />
 
     <Button
         android:id="@+id/btn_adicionar_3"
@@ -81,11 +80,11 @@
     <TextView
         android:id="@+id/tvJogador_2"
         android:layout_width="151dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="@string/jogador_2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ivEqp2"
         app:layout_constraintTop_toBottomOf="@id/btn_adicionar_1_1" />
 
     <Button
@@ -169,19 +168,69 @@
     <TextView
         android:id="@+id/tvPontos_1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/pontos_eqp1"
-        app:layout_constraintBottom_toTopOf="@id/btn_adicionar_1_1"
-        app:layout_constraintStart_toEndOf="@id/tvJogador_1" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_9"
+        app:layout_constraintStart_toEndOf="@+id/ivPontos1" />
 
     <TextView
         android:id="@+id/tvPontos_2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
         android:text="@string/pontos_eqp2"
-        app:layout_constraintBottom_toTopOf="@id/btn_adicionar_3_2"
-        app:layout_constraintStart_toEndOf="@id/tvJogador_2" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_9_2"
+        app:layout_constraintStart_toEndOf="@+id/ivPontos2" />
+
+    <ImageView
+        android:id="@+id/bandeira"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/outline_sports_score_24"
+        tools:layout_editor_absoluteY="15dp" />
+
+    <ImageView
+        android:id="@+id/ivEqp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bandeira"
+        app:srcCompat="@drawable/eqp_1" />
+
+    <ImageView
+        android:id="@+id/ivEqp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_adicionar_1_1"
+        app:srcCompat="@drawable/eqp_2" />
+
+    <ImageView
+        android:id="@+id/ivPontos1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toStartOf="@id/ivPontos1"
+        app:layout_constraintBottom_toTopOf="@id/btn_adicionar_9"
+        app:layout_constraintStart_toStartOf="@id/btn_adicionar_9"
+        app:srcCompat="@drawable/outline_scoreboard_24" />
+
+    <ImageView
+        android:id="@+id/ivPontos2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_9_2"
+        app:layout_constraintStart_toStartOf="@+id/btn_adicionar_9_2"
+        app:srcCompat="@drawable/outline_scoreboard_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

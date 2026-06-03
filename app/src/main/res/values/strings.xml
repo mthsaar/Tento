@@ -18,4 +18,8 @@
     <string name="mensagem_vitoria_eqp2">A dupla %1$s ganhou a partida!</string>
     <string name="pontos_2">Pontos: %1$d</string>
     <string name="pontos_1">Pontos: %1$d</string>
+    <string name="insira_o_nome_das_duplas">Insira o nome das duplas:</string>
+    <string name="nome_da_dupla_1">Nome da dupla 1</string>
+    <string name="nome_da_dupla_2">Nome da dupla 2</string>
+    <string name="btnsalvar">Salvar</string>
 </resources>
