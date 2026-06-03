@@ -22,7 +22,7 @@
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="32dp"
-        android:text="@string/jogador_1"
+        android:text="Dupla 1: nós"
         app:layout_constraintStart_toStartOf="@+id/ivEqp1"
         app:layout_constraintTop_toTopOf="@+id/ivEqp1" />
 
@@ -83,7 +83,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:text="@string/jogador_2"
+        android:text="Dupla 2: Eles"
         app:layout_constraintStart_toStartOf="@id/ivEqp2"
         app:layout_constraintTop_toBottomOf="@id/btn_adicionar_1_1" />
 

@@ -1,9 +1,12 @@
 package com.saar.tentoapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +33,38 @@ class MainActivity : AppCompatActivity() {
         val botaoSoma62 = findViewById<Button>(R.id.btn_adicionar_6_2)
         val botaoSoma92 = findViewById<Button>(R.id.btn_adicionar_9_2)
         val botaoSoma122 = findViewById<Button>(R.id.btn_adicionar_12_2)
+        val btnInfoNomes = findViewById<Button>(R.id.btn_infoNomes)
+
+        // 1. Criamos o receptor que fica esperando o resultado da outra tela
+        val obterNomesLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { resultado ->
+            // Se o usuário clicou em salvar e voltou com sucesso
+            if (resultado.resultCode == RESULT_OK) {
+                val dados = resultado.data
+
+                // Pegamos os textos que foram digitados lá na outra tela
+                val nomeEquipe1 = dados?.getStringExtra("CHAVE_DUPLA_1")
+                val nomeEquipe2 = dados?.getStringExtra("CHAVE_DUPLA_2")
+
+                // Atualizamos os TextViews da tela principal com os nomes novos
+                if (!nomeEquipe1.isNullOrEmpty()) {
+                    textViewEquipe1.text = getString(R.string.dupla_1, nomeEquipe1)
+                }
+                if (!nomeEquipe2.isNullOrEmpty()) {
+                    textViewEquipe2.text = getString(R.string.dupla_2, nomeEquipe2)
+                }
+            }
+        }
+
+        // 2. Configuramos o botão para abrir a tela de nomes
+        btnInfoNomes.setOnClickListener {
+            // Intenção de ir da MainActivity para a NomesActivity
+            val intencao = Intent(this, NomesdeEqpActivity::class.java)
+
+            // Dispara a ação usando o launcher que criamos ali em cima
+            obterNomesLauncher.launch(intencao)
+        }
 
 
 

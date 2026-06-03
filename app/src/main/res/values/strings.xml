@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">TentoApp</string>
     <string name="partida">Partida: %s</string>
-    <string name="jogador_1">Equipe 1: nós</string>
-    <string name="jogador_2">Equipe 2: eles</string>
     <string name="mais_1">+1</string>
     <string name="mais_3">+ 3</string>
     <string name="mais_6">+ 6</string>
@@ -22,4 +20,6 @@
     <string name="nome_da_dupla_1">Nome da dupla 1</string>
     <string name="nome_da_dupla_2">Nome da dupla 2</string>
     <string name="btnsalvar">Salvar</string>
+    <string name="dupla_1">Dupla 1: %1$s</string>
+    <string name="dupla_2">Dupla 2: %1$s</string>
 </resources>
