@@ -14,4 +14,8 @@
     <string name="hist_de_jogadas">Hist. de jogadas</string>
     <string name="pontos_eqp1">Pontos: %x</string>
     <string name="pontos_eqp2">Pontos: %y</string>
+    <string name="mensagem_vitoria_eqp1">A dupla %1$s ganhou a partida!</string>
+    <string name="mensagem_vitoria_eqp2">A dupla %1$s ganhou a partida!</string>
+    <string name="pontos_2">Pontos: %1$d</string>
+    <string name="pontos_1">Pontos: %1$d</string>
 </resources>
