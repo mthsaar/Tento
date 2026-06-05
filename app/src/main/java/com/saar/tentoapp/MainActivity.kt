@@ -40,40 +40,62 @@ class MainActivity : AppCompatActivity() {
         val obterNomesLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { resultado ->
-            // Se o usuário clicou em salvar e voltou com sucesso
             if (resultado.resultCode == RESULT_OK) {
                 val dados = resultado.data
 
-                // Pegamos os textos que foram digitados lá na outra tela
                 val nomeEquipe1 = dados?.getStringExtra("CHAVE_DUPLA_1")
                 val nomeEquipe2 = dados?.getStringExtra("CHAVE_DUPLA_2")
+                val preferencias = getSharedPreferences("HistoricoApp", MODE_PRIVATE)
+                val editor = preferencias.edit()
 
-                // Atualizamos os TextViews da tela principal com os nomes novos
                 if (!nomeEquipe1.isNullOrEmpty()) {
-                    textViewEquipe1.text = getString(R.string.dupla_1, nomeEquipe1)
+                    textViewEquipe1.text = "Equipe 1: $nomeEquipe1"
+                    editor.putString("NOME_EQP1", nomeEquipe1)
                 }
+
                 if (!nomeEquipe2.isNullOrEmpty()) {
-                    textViewEquipe2.text = getString(R.string.dupla_2, nomeEquipe2)
+                    textViewEquipe2.text = "Equipe 2: $nomeEquipe2"
+                    editor.putString("NOME_EQP2", nomeEquipe2)
                 }
+
+                editor.apply()
             }
         }
 
-        // 2. Configuramos o botão para abrir a tela de nomes
+        if (savedInstanceState != null) {
+            somaTotal = savedInstanceState.getInt("SOMA_TOTAL_1")
+            somaTotal2 = savedInstanceState.getInt("SOMA_TOTAL_2")
+
+            meuTextView.text = "Pontos: $somaTotal"
+            meuTextView2.text = "Pontos: $somaTotal2"
+
+            textViewEquipe1.text = savedInstanceState.getString("TEXTO_EQP1")
+            textViewEquipe2.text = savedInstanceState.getString("TEXTO_EQP2")
+
+            if (somaTotal >= 12) {
+                val nome = textViewEquipe1.text.toString()
+                mostrarPopUpVitoria(nome)
+            } else if (somaTotal2 >= 12) {
+                val nome = textViewEquipe2.text.toString()
+                mostrarPopUpVitoria(nome)
+            }
+
+        } else {
+            meuTextView.text = "Pontos: 0"
+            meuTextView2.text = "Pontos: 0"
+        }
+
         btnInfoNomes.setOnClickListener {
-            // Intenção de ir da MainActivity para a NomesActivity
             val intencao = Intent(this, NomesdeEqpActivity::class.java)
 
-            // Dispara a ação usando o launcher que criamos ali em cima
             obterNomesLauncher.launch(intencao)
         }
 
         val btnHistorico = findViewById<Button>(R.id.btn_Historico)
 
         btnHistorico.setOnClickListener {
-            // 1. Cria a "intenção" informando onde estamos (this) e para onde vamos
             val intencao = Intent(this, HistoricoDePartidasActivity::class.java)
 
-            // 2. Manda o Android executar essa intenção (abrir a tela)
             startActivity(intencao)
         }
 
@@ -90,7 +112,6 @@ class MainActivity : AppCompatActivity() {
                     registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
-
 
 
                 } else {
@@ -274,7 +295,7 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss() // Fecha a pop-up
         }
 
-                val dialog = builder.create()
+        val dialog = builder.create()
         dialog.show()
     }
 
@@ -306,5 +327,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         editor.apply()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("SOMA_TOTAL_1", somaTotal)
+        outState.putInt("SOMA_TOTAL_2", somaTotal2)
+
+        val tvEqp1 = findViewById<TextView>(R.id.tvJogador_1)
+        val tvEqp2 = findViewById<TextView>(R.id.tvJogador_2)
+
+        outState.putString("TEXTO_EQP1", tvEqp1.text.toString())
+        outState.putString("TEXTO_EQP2", tvEqp2.text.toString())
     }
 }
