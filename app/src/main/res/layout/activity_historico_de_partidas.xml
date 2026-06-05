@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HistoricoDePartidasActivity">
+
+    <ImageView
+        android:id="@+id/ivLogoHistorico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/historico" />
+
+    <TextView
+        android:id="@+id/tvTituloHistorico"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/historico_de_partidas"
+        app:layout_constraintStart_toEndOf="@+id/ivLogoHistorico"
+        app:layout_constraintTop_toTopOf="@+id/ivLogoHistorico" />
+
+    <ImageView
+        android:id="@+id/ivLogoEqp1Historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoHistorico"
+        app:srcCompat="@drawable/eqp_1" />
+
+    <TextView
+        android:id="@+id/tvEqp1Historico"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:text="A dupla nós ganhou 0 partidas"
+        app:layout_constraintStart_toEndOf="@+id/ivLogoEqp1Historico"
+        app:layout_constraintTop_toTopOf="@+id/ivLogoEqp1Historico" />
+
+    <ImageView
+        android:id="@+id/ivEqp2Historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoEqp1Historico"
+        app:srcCompat="@drawable/eqp_2" />
+
+    <TextView
+        android:id="@+id/tvEqp2Historico"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:text="A dupla eles ganhou 0 partidas"
+        app:layout_constraintStart_toEndOf="@+id/ivEqp2Historico"
+        app:layout_constraintTop_toTopOf="@+id/ivEqp2Historico" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/zerar_historico"
+        app:layout_constraintStart_toStartOf="@+id/ivLogoHistorico"
+        app:layout_constraintTop_toBottomOf="@+id/ivEqp2Historico" />
+</androidx.constraintlayout.widget.ConstraintLayout>

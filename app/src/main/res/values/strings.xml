@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TentoApp</string>
-    <string name="partida">Partida: %s</string>
+    <string name="partida">Partida: 1</string>
     <string name="mais_1">+1</string>
     <string name="mais_3">+ 3</string>
     <string name="mais_6">+ 6</string>
@@ -9,9 +9,9 @@
     <string name="zerar">Zerar</string>
     <string name="info_nomes">Info. nomes</string>
     <string name="zerar_hist">Zerar histórico</string>
-    <string name="hist_de_jogadas">Hist. de jogadas</string>
-    <string name="pontos_eqp1">Pontos: %x</string>
-    <string name="pontos_eqp2">Pontos: %y</string>
+    <string name="hist_de_jogadas">Hist. de partidas</string>
+    <string name="pontos_eqp1">Pontos: 0</string>
+    <string name="pontos_eqp2">Pontos: 0</string>
     <string name="mensagem_vitoria_eqp1">A dupla %1$s ganhou a partida!</string>
     <string name="mensagem_vitoria_eqp2">A dupla %1$s ganhou a partida!</string>
     <string name="pontos_2">Pontos: %1$d</string>
@@ -22,4 +22,7 @@
     <string name="btnsalvar">Salvar</string>
     <string name="dupla_1">Dupla 1: %1$s</string>
     <string name="dupla_2">Dupla 2: %1$s</string>
+    <string name="historico_de_partidas">Histórico de Partidas</string>
+    <string name="zerar_historico">Zerar Histórico</string>
+    <string name="zerar_partida">Zerar partida</string>
 </resources>

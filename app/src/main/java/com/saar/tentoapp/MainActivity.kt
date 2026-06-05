@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContracts
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val botaoSoma61 = findViewById<Button>(R.id.btn_adicionar_6)
         val botaoSoma91 = findViewById<Button>(R.id.btn_adicionar_9)
         val botaoSoma121 = findViewById<Button>(R.id.btn_adicionar_12)
+        val botaoZerarPartida = findViewById<Button>(R.id.btn_zerar)
 
         val meuTextView2 = findViewById<TextView>(R.id.tvPontos_2)
         val textViewEquipe2 = findViewById<TextView>(R.id.tvJogador_2)
@@ -35,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         val botaoSoma122 = findViewById<Button>(R.id.btn_adicionar_12_2)
         val btnInfoNomes = findViewById<Button>(R.id.btn_infoNomes)
 
-        // 1. Criamos o receptor que fica esperando o resultado da outra tela
         val obterNomesLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { resultado ->
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        meuTextView.text = somaTotal.toString()
+        meuTextView.text = "Pontos: $somaTotal"
 
         botaoSoma11.setOnClickListener {
             if (somaTotal < 12) {
@@ -77,12 +78,12 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal >= 12) {
                     somaTotal = 12
 
+                    meuTextView.text = "Pontos: $somaTotal"
                     val nomeDaEquipe = textViewEquipe1.text.toString()
+                    mostrarPopUpVitoria(nomeDaEquipe)
 
-                    meuTextView.text = getString(R.string.mensagem_vitoria_eqp1, nomeDaEquipe)
                 } else {
-
-                    meuTextView.text = getString(R.string.pontos_1, somaTotal)
+                    meuTextView.text = "Pontos: $somaTotal"
                 }
             }
         }
@@ -94,12 +95,12 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal >= 12) {
                     somaTotal = 12
 
+                    meuTextView.text = "Pontos: $somaTotal"
                     val nomeDaEquipe = textViewEquipe1.text.toString()
+                    mostrarPopUpVitoria(nomeDaEquipe)
 
-                    meuTextView.text = getString(R.string.mensagem_vitoria_eqp1, nomeDaEquipe)
                 } else {
-
-                    meuTextView.text = getString(R.string.pontos_1, somaTotal)
+                    meuTextView.text = "Pontos: $somaTotal"
                 }
             }
         }
@@ -110,12 +111,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal >= 12) {
                     somaTotal = 12
 
+                    meuTextView.text = "Pontos: $somaTotal"
                     val nomeDaEquipe = textViewEquipe1.text.toString()
-
-                    meuTextView.text = getString(R.string.mensagem_vitoria_eqp1, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView.text = getString(R.string.pontos_1, somaTotal)
+                    meuTextView.text = "Pontos: $somaTotal"
                 }
             }
         }
@@ -127,12 +127,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal >= 12) {
                     somaTotal = 12
 
+                    meuTextView.text = "Pontos: $somaTotal"
                     val nomeDaEquipe = textViewEquipe1.text.toString()
-
-                    meuTextView.text = getString(R.string.mensagem_vitoria_eqp1, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView.text = getString(R.string.pontos_1, somaTotal)
+                    meuTextView.text = "Pontos: $somaTotal"
                 }
             }
         }
@@ -143,17 +142,16 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal >= 12) {
                     somaTotal = 12
 
+                    meuTextView.text = "Pontos: $somaTotal"
                     val nomeDaEquipe = textViewEquipe1.text.toString()
-
-                    meuTextView.text = getString(R.string.mensagem_vitoria_eqp1, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView.text = getString(R.string.pontos_1, somaTotal)
+                    meuTextView.text = "Pontos: $somaTotal"
                 }
             }
         }
 
-        meuTextView2.text = somaTotal2.toString()
+        meuTextView2.text = "Pontos: $somaTotal2"
 
         botaoSoma12.setOnClickListener {
             if (somaTotal2 < 12) {
@@ -162,12 +160,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal2 >= 12) {
                     somaTotal2 = 12
 
+                    meuTextView2.text = "Pontos: $somaTotal2"
                     val nomeDaEquipe = textViewEquipe2.text.toString()
-
-                    meuTextView2.text = getString(R.string.mensagem_vitoria_eqp2, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView2.text = getString(R.string.pontos_2, somaTotal2)
+                    meuTextView2.text = "Pontos: $somaTotal2"
                 }
             }
         }
@@ -179,13 +176,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal2 >= 12) {
                     somaTotal2 = 12
 
-                    val nomeDaEquipe =
-                        textViewEquipe2.text.toString()
-
-                    meuTextView2.text = getString(R.string.mensagem_vitoria_eqp2, nomeDaEquipe)
+                    meuTextView2.text = "Pontos: $somaTotal2"
+                    val nomeDaEquipe = textViewEquipe2.text.toString()
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView2.text = getString(R.string.pontos_2, somaTotal2)
+                    meuTextView2.text = "Pontos: $somaTotal2"
                 }
             }
         }
@@ -196,13 +191,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal2 >= 12) {
                     somaTotal2 = 12
 
-                    val nomeDaEquipe =
-                        textViewEquipe2.text.toString()
-
-                    meuTextView2.text = getString(R.string.mensagem_vitoria_eqp2, nomeDaEquipe)
+                    meuTextView2.text = "Pontos: $somaTotal2"
+                    val nomeDaEquipe = textViewEquipe2.text.toString()
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView2.text = getString(R.string.pontos_2, somaTotal2)
+                    meuTextView2.text = "Pontos: $somaTotal2"
                 }
             }
         }
@@ -214,12 +207,11 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal2 >= 12) {
                     somaTotal2 = 12
 
+                    meuTextView2.text = "Pontos: $somaTotal2"
                     val nomeDaEquipe = textViewEquipe2.text.toString()
-
-                    meuTextView2.text = getString(R.string.mensagem_vitoria_eqp2, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView2.text = getString(R.string.pontos_2, somaTotal2)
+                    meuTextView2.text = "Pontos: $somaTotal2"
                 }
             }
         }
@@ -231,14 +223,49 @@ class MainActivity : AppCompatActivity() {
                 if (somaTotal2 >= 12) {
                     somaTotal2 = 12
 
+                    meuTextView2.text = "Pontos: $somaTotal2"
                     val nomeDaEquipe = textViewEquipe2.text.toString()
-
-                    meuTextView2.text = getString(R.string.mensagem_vitoria_eqp2, nomeDaEquipe)
+                    mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
-
-                    meuTextView2.text = getString(R.string.pontos_2, somaTotal2)
+                    meuTextView2.text = "Pontos: $somaTotal2"
                 }
             }
         }
+
+        botaoZerarPartida.setOnClickListener {
+            somaTotal = 0
+            somaTotal2 = 0
+
+            meuTextView.text = "Pontos: $somaTotal"
+            meuTextView2.text = "Pontos: $somaTotal2"
+        }
+    }
+
+    private fun mostrarPopUpVitoria(nomeDaDupla: String) {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Temos um Vencedor!")
+        builder.setMessage("A $nomeDaDupla ganhou a partida!")
+        builder.setCancelable(false)
+        builder.setPositiveButton("Nova Partida") { dialog, _ ->
+
+            reiniciarPartida()
+            dialog.dismiss() // Fecha a pop-up
+        }
+
+                val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun reiniciarPartida() {
+
+        somaTotal = 0
+        somaTotal2 = 0
+
+        val meuTextView = findViewById<TextView>(R.id.tvPontos_1)
+        meuTextView.text = "Pontos: $somaTotal"
+
+        val meuTextView2 = findViewById<TextView>(R.id.tvPontos_2)
+        meuTextView2.text = "Pontos: $somaTotal2"
     }
 }

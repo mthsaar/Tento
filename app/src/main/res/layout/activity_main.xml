@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/partida"
         app:layout_constraintStart_toEndOf="@+id/bandeira"
         app:layout_constraintTop_toTopOf="parent" />
@@ -137,7 +137,7 @@
 
     <Button
         android:id="@+id/btn_Historico"
-        android:layout_width="151dp"
+        android:layout_width="232dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -146,17 +146,17 @@
         app:layout_constraintTop_toBottomOf="@id/btn_adicionar_3_2" />
 
     <Button
-        android:layout_width="151dp"
+        android:layout_width="232dp"
         android:id="@+id/btn_zerar"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="@string/zerar_hist"
+        android:text="@string/zerar_partida"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_Historico" />
 
     <Button
-        android:layout_width="151dp"
+        android:layout_width="232dp"
         android:id="@+id/btn_infoNomes"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -171,7 +171,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/pontos_eqp1"
+        android:text="Pontos: 0"
         app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_9"
         app:layout_constraintStart_toEndOf="@+id/ivPontos1" />
 
@@ -181,7 +181,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/pontos_eqp2"
+        android:text="Pontos: 0"
         app:layout_constraintBottom_toTopOf="@+id/btn_adicionar_9_2"
         app:layout_constraintStart_toEndOf="@+id/ivPontos2" />
 
@@ -191,6 +191,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_partida"
         app:srcCompat="@drawable/outline_sports_score_24"
         tools:layout_editor_absoluteY="15dp" />
 
