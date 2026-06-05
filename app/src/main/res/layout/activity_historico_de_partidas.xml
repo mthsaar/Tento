@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/historico" />
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivEqp2Historico" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_zerarHistorico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

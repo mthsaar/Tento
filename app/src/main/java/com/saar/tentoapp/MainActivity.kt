@@ -67,7 +67,15 @@ class MainActivity : AppCompatActivity() {
             obterNomesLauncher.launch(intencao)
         }
 
+        val btnHistorico = findViewById<Button>(R.id.btn_Historico)
 
+        btnHistorico.setOnClickListener {
+            // 1. Cria a "intenção" informando onde estamos (this) e para onde vamos
+            val intencao = Intent(this, HistoricoDePartidasActivity::class.java)
+
+            // 2. Manda o Android executar essa intenção (abrir a tela)
+            startActivity(intencao)
+        }
 
         meuTextView.text = "Pontos: $somaTotal"
 
@@ -79,8 +87,11 @@ class MainActivity : AppCompatActivity() {
                     somaTotal = 12
 
                     meuTextView.text = "Pontos: $somaTotal"
+                    registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
+
+
 
                 } else {
                     meuTextView.text = "Pontos: $somaTotal"
@@ -96,8 +107,10 @@ class MainActivity : AppCompatActivity() {
                     somaTotal = 12
 
                     meuTextView.text = "Pontos: $somaTotal"
+                    registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
+
 
                 } else {
                     meuTextView.text = "Pontos: $somaTotal"
@@ -112,6 +125,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal = 12
 
                     meuTextView.text = "Pontos: $somaTotal"
+                    registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -128,6 +142,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal = 12
 
                     meuTextView.text = "Pontos: $somaTotal"
+                    registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -143,6 +158,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal = 12
 
                     meuTextView.text = "Pontos: $somaTotal"
+                    registrarVitoriaNoHistorico(1)
                     val nomeDaEquipe = textViewEquipe1.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -161,6 +177,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal2 = 12
 
                     meuTextView2.text = "Pontos: $somaTotal2"
+                    registrarVitoriaNoHistorico(2)
                     val nomeDaEquipe = textViewEquipe2.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -177,6 +194,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal2 = 12
 
                     meuTextView2.text = "Pontos: $somaTotal2"
+                    registrarVitoriaNoHistorico(2)
                     val nomeDaEquipe = textViewEquipe2.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -192,6 +210,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal2 = 12
 
                     meuTextView2.text = "Pontos: $somaTotal2"
+                    registrarVitoriaNoHistorico(2)
                     val nomeDaEquipe = textViewEquipe2.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -208,6 +227,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal2 = 12
 
                     meuTextView2.text = "Pontos: $somaTotal2"
+                    registrarVitoriaNoHistorico(2)
                     val nomeDaEquipe = textViewEquipe2.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -224,6 +244,7 @@ class MainActivity : AppCompatActivity() {
                     somaTotal2 = 12
 
                     meuTextView2.text = "Pontos: $somaTotal2"
+                    registrarVitoriaNoHistorico(2)
                     val nomeDaEquipe = textViewEquipe2.text.toString()
                     mostrarPopUpVitoria(nomeDaEquipe)
                 } else {
@@ -267,5 +288,23 @@ class MainActivity : AppCompatActivity() {
 
         val meuTextView2 = findViewById<TextView>(R.id.tvPontos_2)
         meuTextView2.text = "Pontos: $somaTotal2"
+    }
+
+    private fun registrarVitoriaNoHistorico(equipe: Int) {
+
+        val preferencias = getSharedPreferences("HistoricoApp", MODE_PRIVATE)
+        val editor = preferencias.edit()
+
+        if (equipe == 1) {
+
+            val vitoriasAtuais = preferencias.getInt("VITORIAS_EQP1", 0)
+
+            editor.putInt("VITORIAS_EQP1", vitoriasAtuais + 1)
+        } else if (equipe == 2) {
+            val vitoriasAtuais = preferencias.getInt("VITORIAS_EQP2", 0)
+            editor.putInt("VITORIAS_EQP2", vitoriasAtuais + 1)
+        }
+
+        editor.apply()
     }
 }

@@ -1,20 +1,33 @@
 package com.saar.tentoapp
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 
 class HistoricoDePartidasActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_historico_de_partidas)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val tvEqp1Historico = findViewById<TextView>(R.id.tvEqp1Historico)
+        val tvEqp2Historico = findViewById<TextView>(R.id.tvEqp2Historico)
+        val btnZerar = findViewById<Button>(R.id.btn_zerarHistorico)
+        val preferencias = getSharedPreferences("HistoricoApp", MODE_PRIVATE)
+        fun atualizarTextosNaTela() {
+
+            val vitoriasEqp1 = preferencias.getInt("VITORIAS_EQP1", 0)
+            val vitoriasEqp2 = preferencias.getInt("VITORIAS_EQP2", 0)
+
+            tvEqp1Historico.text = "A dupla 1 ganhou $vitoriasEqp1 partidas"
+            tvEqp2Historico.text = "A dupla 2 ganhou $vitoriasEqp2 partidas"
+        }
+
+        atualizarTextosNaTela()
+
+        btnZerar.setOnClickListener {
+           preferencias.edit().clear().apply()
+           atualizarTextosNaTela()
         }
     }
 }
